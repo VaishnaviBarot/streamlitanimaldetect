@@ -1,13 +1,20 @@
 import os
 import uuid
 import flask
+import urllib
+import base64
 import streamlit as st
+import matplotlib.pyplot as plt
 from PIL import Image
+from flask import Flask, request
+from tensorflow.keras.models import load_model
+# from flask import Flask, make_response , render_template  , request , send_file
+# from tensorflow.keras.preprocessing.image import load_img , img_to_array
+import tensorflow_hub as hub
 import tensorflow as tf
 import numpy as np
 from tensorflow import keras
 from tensorflow.keras.models import load_model
-import matplotlib.pyplot as plt
 from tensorflow.keras import preprocessing
 import time
 
@@ -71,8 +78,12 @@ def predict(image):
         }
 
     
-    result = f"{class_names[np.argmax(scores)]} with a { (100 * np.max(scores)).round(2) } % confidence." 
-    return result
+    result =  (100 * np.max(scores)).round(2)  
+    if(result>9):
+        status = "Detected"
+    else:
+        status = "Please enter a valid image of animal" 
+    return status
 
 
 
@@ -94,6 +105,9 @@ def main():
                 time.sleep(1)
                 st.success('Classified')
                 st.write(predictions)
+                st.json({
+                    "status": predictions
+                })
 
 if __name__ == "__main__":
     main()
