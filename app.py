@@ -3,8 +3,6 @@ import uuid
 import flask
 import streamlit as st
 from PIL import Image
-# from flask import Flask, make_response , render_template  , request , send_file
-# from tensorflow.keras.preprocessing.image import load_img , img_to_array
 import tensorflow as tf
 import numpy as np
 from tensorflow import keras
