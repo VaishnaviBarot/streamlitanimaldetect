@@ -1,12 +1,8 @@
 import os
 import uuid
 import flask
-import urllib
-import base64
 import streamlit as st
 from PIL import Image
-from flask import Flask, request
-from tensorflow.keras.models import load_model
 # from flask import Flask, make_response , render_template  , request , send_file
 # from tensorflow.keras.preprocessing.image import load_img , img_to_array
 import tensorflow_hub as hub
