@@ -4,7 +4,6 @@ import flask
 import urllib
 import base64
 import streamlit as st
-import matplotlib.pyplot as plt
 from PIL import Image
 from flask import Flask, request
 from tensorflow.keras.models import load_model
