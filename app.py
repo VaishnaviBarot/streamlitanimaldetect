@@ -7,6 +7,7 @@ import tensorflow as tf
 import numpy as np
 from tensorflow import keras
 from tensorflow.keras.models import load_model
+import matplotlib.pyplot as plt
 from tensorflow.keras import preprocessing
 import time
 
